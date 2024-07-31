@@ -39,3 +39,21 @@ jobs:
         needs: test
         steps:
           - run: echo "deploy jobs"
+
+    webslides:
+        name: Publish slides
+        runs-on: 'ubuntu-latest'
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-python@v3
+              with:
+                python-version: "3.12"
+            - run: python -m pip install git+https://gitlab.com/da_doomer/markdown-slides.git
+            - name: Upload GitHub Pages artifact
+              uses: actions/upload-pages-artifact@v3.0.1
+            - name: Deploy GitHub Pages site
+              uses: actions/deploy-pages@v4.0.5
+
+
+
+
