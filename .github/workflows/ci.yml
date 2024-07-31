@@ -61,9 +61,9 @@ jobs:
     publish_slides:
         needs: webslides
 
-        permissions:
-            pages: write
-            id-token: write
+        # permissions:
+        #     pages: write
+        #     id-token: write
 
         environment:
             name: github-pages
